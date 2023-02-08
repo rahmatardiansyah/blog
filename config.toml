@@ -1,0 +1,5 @@
+baseURL = 'https://rahmatardiansyah.github.io/'
+languageCode = 'en-us'
+title = 'MatArt'
+
+theme = 'PaperCSS'
