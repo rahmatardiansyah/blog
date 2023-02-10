@@ -1,0 +1,64 @@
+{{ define "head" }}
+    {{ if .PrevInSection }}
+        <link rel="prev" href="{{ .PrevInSection.Permalink }}">
+    {{ end }} 
+    {{ if .NextInSection }}
+        <link rel="next" href="{{ .NextInSection.Permalink }}">
+    {{ end }}
+
+    <link rel="stylesheet" href='{{ "css/single.css" | absURL }}' />
+
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}image/MatArt.ico" />
+
+    {{ if .Params.Math }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    {{ end }}
+{{ end }}
+
+{{ define "main" }}
+<div id="main">
+    {{ if ne .Section "blog"}}
+        <div class="not-blog">{{ .Content }}</div>
+    {{ else }}
+        <h1 class="text-center">{{ .Title }}</h1>
+        {{ if ne .Params.tags nil }}
+        <b>Keywords: </b>
+        {{ range .Params.tags }}
+        <a class="link" href='{{ "tags" | absURL }}/{{ . | urlize }}'>#{{ . }}</a>
+        {{ end }} {{ end }}
+        <div class="toc margin-top-large">
+            <details open>
+              <summary>Table of Contents</summary>
+              {{ .TableOfContents }}
+            </details>
+        </div>
+        {{ if eq .Params.Outdated true}}
+            <div class="alert alert-warning margin-top-large"><b>Halaman ini mungkin sudah tidak up to date lagi.</b></div>
+        {{ end }}
+            {{ .Content }}
+            <div class="row flex-edges margin-large">
+                {{ if .PrevInSection }}
+                    <a href="{{ .PrevInSection.Permalink }}" class="paper-btn">← Sebelumnya</a>
+                {{ else }}
+                    <a></a>
+                {{ end }}
+                
+                {{ if .NextInSection }}
+                    <a href="{{ .NextInSection.Permalink }}" class="paper-btn">Selanjutnya →</a>
+                {{ else }}
+                    <a></a>
+                {{ end }}
+            </div>
+            <div class="to-top">
+                <a href="#top" class="paper-btn margin">^</a>
+            </div>
+    {{ end }}
+  </div>
+{{ end }}

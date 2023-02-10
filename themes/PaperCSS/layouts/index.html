@@ -1,0 +1,39 @@
+{{ define "head" }}
+  <link rel="stylesheet" href='{{ "css/index.css" | absURL }}' />
+{{ end }}
+
+{{ define "main" }}
+<div id="index">
+<h2 class="margin-bottom-none">Post</h2>
+{{ $paginator := .Paginate (where .Site.RegularPages "Type" "==" "blog") }} {{
+  range $paginator.Pages }}
+  <div class="row">
+    <div class="col-10"><h4 class="margin-right-small margin-bottom-none"><a href="{{ .Permalink }}">{{ .Title }}</a></h4></div>
+    <div class="col-2 align-bottom text-center">{{ .PublishDate.Format "2 Jan 2006" }}</div>
+  </div>
+  {{ if ne .Params.tags nil }}
+  <b>Keywords: </b>
+  {{ range .Params.tags }}
+  <a class="link" href='{{ "tags" | absURL }}/{{ . | urlize }}'>#{{ . }}</a>
+  {{ end }} {{ end }}
+  {{ if .Description }}
+  <div class="description"><p>{{ .Description }}</p></div>
+  {{ else if .Summary }}
+  <div class="description"><p>{{ .Summary }}</p></div>
+  {{ end }}
+{{ end }}
+{{ if or $paginator.HasPrev $paginator.HasNext }}
+  <div class="row flex-edges margin-large">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="paper-btn">← Sebelumnya</a>
+    {{ else }}
+    <a></a>
+    {{ end }} {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="paper-btn">Selanjutnya →</a>
+    {{ else }}
+    <a></a>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}

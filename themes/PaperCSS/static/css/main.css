@@ -1,0 +1,36 @@
+html body {
+  /* background-image: url(../image/geometry.png); */
+}
+
+html.dark body {
+  background-color:#41403e;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.to-top {
+  opacity: 1;
+  display: inline-block;
+  padding: 1em;
+  position: fixed;
+  bottom: 1em;
+  right: 1em
+}
+
+.to-top .paper-btn {
+  padding: .6em 1em;
+  border-top-left-radius: 185px 160px;
+  border-top-right-radius: 200px 195px;
+  border-bottom-right-radius: 160px 195px;
+  border-bottom-left-radius: 185px 190px
+}
+
+@media only screen and (max-width: 960px) {
+  .to-top {
+    display: none;
+  }
+}
