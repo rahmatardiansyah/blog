@@ -22,7 +22,7 @@ Sekilas tentang DNF, DNF adalah package manager yang digunakan distribusi Linux 
 
 Setelah kita mengubah file konfigurasi dnf selanjutnya update system, dengan cara menjalankan command dibawah ini
 
-```sh
+```console
 $ sudo dnf up
 ```
 
@@ -30,7 +30,7 @@ $ sudo dnf up
 
 Selanjutnya adalah Mengaktifkan RPMFusion. RPMFusion adalah repository tambahan yang bisa digunakan oleh turunan distribusi RedHat. Karena Fedora hanya menyediakan software open source saja maka secara default repositori ini tidak aktif. Untuk mengaktifkannya hanya perlu menjalankan perintah dibawah ini.
 
-```shell
+```console
 $ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
@@ -38,7 +38,7 @@ $ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 
 Secara default Flatpak sudah terinstall di Linux Fedora 37 tapi belum mengaktifkan repository dari flathub. Cara mengaktifkannya dengan menjalankan command berikut ini
 
-```shell
+```console
 $ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
@@ -46,7 +46,7 @@ $ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.fl
 
 Saya menggunakan aplikasi neovim sebagai text editor sehari-hari. Untuk alasan kenyamanan tombol CapsLock di keyboard saya ganti dengan Escape agar lebih mudah masuk ke mode normal pada neovim. Untuk _Meremaps_-nya ada package yang harus diinstall yaitu `xcape`.Tapi `xcape` tidak ada di repository bawaan Fedora 37, maka dari itu harus ditambahkan terlebih dahulu menggunakan [copr](https://copr.fedorainfracloud.org/). Berikut cara menginstall dan menggunakannya
 
-```shell
+```console
 $ sudo dnf copr enable dawid/xcape
 $ sudo dnf in xcape
 ```
@@ -76,7 +76,7 @@ Saya menggunakan font dari _NerdFont_ yang bisa didownload [disini](https://www.
 
 Saya menggunakan Icons dari [Papirus](https://www.gnome-look.org/p/1166289/). Sama seperti font. Extract file tersebut lalu copy semua folder ke `/usr/share/icons`. Setelah di copy kita harus menjalankan perintah di bawah ini
 
-```shell
+```console
 $ sudo gtk-update-icon-cache /usr/share/icons/Papirus
 $ sudo gtk-update-icon-cache /usr/share/icons/Papirus-Dark
 $ sudo gtk-update-icon-cache /usr/share/icons/Papirus-Light
@@ -91,20 +91,137 @@ $ sudo gtk-update-icon-cache /usr/share/icons/ePapirus
 Ekstrak dan copy folder tersebut di `/usr/share/icons`
 
 ## Browser
+Saya menggunakan Firefox dan Brave sebagai browser utama, secara default Firefox sudah terinstal pada Linux Fedora. Tapi tidak dengan Brave, kita harus menambahkan repository baru. Berikut caranya
+
+```console
+$ sudo dnf install dnf-plugins-core
+$ sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+$ sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+$ sudo dnf install brave-browser
+```
+
+Setelah menginstal browser ada beberapa step yang saya lakukan, misalnya menambahkan flag `--password-store=basic` pada saat Brave dijalankan. Hal ini dilakukan karena saya menggunakan Desktop Environment dan Window Manager(dwm) secara bersamaan. Karena jika tidak melalukan hal ini browser akan bingung akan menyimpan password di `keyring` atau lainnya ketika kita mengganti session Desktop Environment ke Window Manager atau sebaliknya. Berikut caranya
+
+```console
+$ cp /usr/share/applications/brave-browser.desktop ~/.local/share/applications/brave-browser.desktop
+$ vim ~/.local/share/applications/brave-browser.desktop
+```
+
+Buat folder **applications** jika tidak ada dan paste pada bagian :
+
+```text
+...
+Comment[zh_TW]=連線到網際網路
+Exec=/usr/bin/brave-browser-stable %U --password-store=basic
+StartupNotify=true
+...
+Exec=/usr/bin/brave-browser-stable --password-store=basic
+...
+```
+Terakhir instal plugin yang dibutuhkan dan set default homepage
+* plugins : [new tab redirect](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna/related?hl=id), [json viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
+* Set [startpage](https://github.com/Nainish-Rai/Aesthetic-Startpage)
 
 ## Text/Code Editor
+Saya menggunakan [VSCode](https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions) sebagai Code Editor cadangan dan [Sublime Text](https://www.sublimetext.com/docs/linux_repositories.html#dnf) sebagai notepad. Kedua aplikasi tersebut tidak ada di repository bawaan Fedora jadi kita harus menambahkannya.
+
+```console
+$ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+$ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+$ dnf check-update
+$ sudo dnf in code
+$ sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+$ sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+$ sudo dnf install sublime-text
+```
+
+Setelah install atur config dan install plugin yang dibutuhkan.
 
 ## Terminal
+Untuk terminal saya menggunakan [alacritty](https://github.com/alacritty/alacritty) dan [kitty](https://sw.kovidgoyal.net/kitty/binary/) sebagai terminal utama.
+
+```console
+$ sudo dnf in alacritty
+$ sudo dnf in kitty
+```
 
 ## Shell
+Saya hanya menggunakan bash sebagai default shell, untuk itu harus mengkonfigurasi beberapa hal. Yaitu mulai dari dari **path**, **alias** dan **variable**. Untuk **path** dan **variable** bisa set pada file `~/.bash_profile` dan untuk alias bisa set pada file `~/.bashrc`.
+
+```text
+# ~/.bash_profile
+# User specific environment and startup programs
+export EDITOR="nvim"
+export LESSHISTFILE="-"
+export TERMINAL="alacritty"
+
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+```
+
+```text
+# ~/.bashrc
+PS1='\[\e[0;31m\]\u \[\e[0m\]at \[\e[0;32m\]\H \[\e[0m\]in \[\e[0;96m\]\W \[\e[0m\]$ \[\e[0m\]'
+
+HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+# source alias file
+if [ -f ~/.aliases ]; then
+. ~/.aliases
+fi
+```
+
+untuk alias saya buat file terpisah agar mudah ditambahkan yaitu pada file `~/.aliases`.
 
 ## Screen Mirroring scrcpy
+Screen Mirroring adalah fitur yang memungkinkan kita menduplikat layar ponsel ke komputer. Saya menggunakan [scrcpy](https://github.com/Genymobile/scrcpy) karena sangat mudah dan ringan menggunakannya.
+
+```console
+$ sudo dnf copr enable zeno/scrcpy
+$ sudo dnf in scrcpy
+```
+
+Enable kan **Usb Debugging** dan connect kan hp via Usb lalu jalankan perintah `scrcpy` di terminal.
+
+{{< show-gif src="/images/demo-scrcpy.gif" alt="Demo penggunaan aplikasi scrcpy" class="no-border" >}}
 
 ## Video Player mpv
+Video player yang saya gunakan adalah [mpv](https://mpv.io/) karena ringan dan mengoperasikannya menggunakan keybind.
+
+```console
+$ sudo dnf in mpv
+$ mkdir ~/.config/mpv
+$ cp /usr/share/doc/mpv/mpv.conf ~/.config/mpv
+$ vim ~/.config/mpv
+```
+
+```text
+# ~/.config/mpv/mpv.conf
+save-position-on-quit
+autofit-larger=60%x60%
+```
 
 ## System Monitor
+System Monitor merupakan sebuah tool untuk melakukan monitoring atau pengawasan aplikasi yang berjalan pada komputer. Saya menggunakan `htop` dan `btop` sebagai System Monitor utama.
+```text
+$ sudo dnf in btop htop
+```
 
-## Screencast Tools
+## screenkey
+Aplikasi [screenkey](https://gitlab.com/screenkey/screenkey) ini berguna untuk manampilkan log/history dari keyboard maupun mouse. Biasanya digunakan untuk membuat video presentasi agar memudahkan penontonnya mengetahui apa yang di-click maupun yang ditekan pada keyboard.
+
+```console
+$ sudo dnf in screenkey
+```
+
+{{< show-gif src="/images/demo-screenkey.gif" alt="Demo penggunaan aplikasi screenkey" class="no-border" >}}
 
 ## Color Picker
 

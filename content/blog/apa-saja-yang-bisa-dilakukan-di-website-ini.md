@@ -127,7 +127,7 @@ Add captions to your inline images like this:
 ![Alt text](image-url.jpg)
 ```
 
-![teks alternatif](/img/programmer-work.jpg)
+![teks alternatif](/images/programmer-work.jpg)
 
 ## YouTube Shortcode
 
