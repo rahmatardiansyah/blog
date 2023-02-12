@@ -5,6 +5,8 @@ theme = 'PaperCSS'
 paginate = 5 # jumlah post per halaman
 rssLimit = 10 # Batas RSS yang ditampilkan
 enableRobotsTXT = true
+pygmentsUseClasses = true
+pygmentsCodefences = true
 
 [params]
 since = "2023" # Dibuat Sejak Tahun

@@ -17,7 +17,7 @@ Jika kita melakukan dual booting Windows dan Linux akan terjadinya perbedaan wak
 
 Cara ini hanya berlaku untuk init sistem **systemd** jika menggunakan **runit** beda lagi.
 
-```
+```console
 $ timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
@@ -27,13 +27,13 @@ Jika perintah diatas sudah dijalankan lakukan sinkronisasi jam di kedua sistem o
 
 Edit file yang berada pada `/etc/rc/rc.conf` dan uncomment atau tambahkan line dibawah ini
 
-```
+```text
 HARDWARECLOCK='localtime'
 ```
 
 Lalu atur jam dengan menggunakan user root atau menggunakan command sudo
 
-```
+```console
 $ sudo date 012308582023
 ```
 

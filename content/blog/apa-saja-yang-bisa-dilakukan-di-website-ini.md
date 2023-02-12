@@ -13,6 +13,9 @@ draft: true
 Artikel ini mengandung syntax markdown dasar yang digunakan untuk menulis postingan pada blog ini. Dan juga bisa menggunakan elements HTML didalamnya yang bisa dihias menggunakan CSS
 
 ### Headings
+#### Headings4
+##### Headings5
+###### Headings6
 
 Dengan mengikuti tag HTML `<h2>`—`<h6>` merepresentasikan 5 bagian judul, `<h2>` adalah judul yang paling besar sedangkan `<h6>` adalah judul yang paling kecil.
 
@@ -137,3 +140,6 @@ Add captions to your inline images like this:
 ## Twitter Shortcode
 
 {{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
+
+## Embed Audio
+{{<audio src="/audio/test.mp3" class="row flex-center" >}}

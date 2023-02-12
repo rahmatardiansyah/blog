@@ -1,66 +1,31 @@
+@media only screen and (max-width: 640px){
+  #main h1 {
+    font-size: 3.5rem
+  }
+
+  #main h2 {
+    font-size: 2.5rem
+  }
+
+  #main h3 {
+    font-size: 1.5rem
+  }
+
+  #main h4 {
+    font-size: 1.3rem
+  }
+
+  #main h5 {
+    font-size: 1.1rem
+  }
+
+  #main h6 {
+    font-size: 1rem
+  }
+}
+
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
   color: var(--primary);
-}
-
-h5 {
-  font-size: 1.2rem;
-}
-
-h6 {
-  font-size: 1rem;
-}
-
-@media only screen and (max-width: 960px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 2.3rem;
-  }
-
-  h3 {
-    font-size: 1.8rem;
-  }
-
-  h4 {
-    font-size: 1.5rem;
-  }
-
-  h5 {
-    font-size: 1.3rem;
-  }
-
-  h6 {
-    font-size: 1.1rem;
-  }
-}
-
-@media only screen and (max-width: 375px) {
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  h4 {
-    font-size: 1.2rem;
-  }
-
-  h5 {
-    font-size: 1rem;
-  }
-
-  h6 {
-    font-size: 0.9rem;
-  }
 }
 
 .toc a {
@@ -84,4 +49,33 @@ h6 {
   color: var(--primary-inverse);
   position: relative;
   z-index: 100;
+}
+
+.twitter-tweet-rendered {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.to-top {
+  opacity: 1;
+  display: inline-block;
+  padding: 1em;
+  position: fixed;
+  bottom: 1em;
+  right: 1em
+}
+
+.to-top .paper-btn {
+  padding: .6em 1em;
+  border-top-left-radius: 185px 160px;
+  border-top-right-radius: 200px 195px;
+  border-bottom-right-radius: 160px 195px;
+  border-bottom-left-radius: 185px 190px
+}
+
+@media only screen and (max-width: 960px) {
+  .to-top {
+    display: none;
+  }
 }

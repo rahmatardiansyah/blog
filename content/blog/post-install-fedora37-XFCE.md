@@ -8,15 +8,15 @@ draft: false
 
 ## Pendahuluan
 
-Jika kita baru menginstal sistem operasi ada beberapa hal yang harus dilakukan.Misalnya install aplikasi yang dibutuhkan dan mengubah konfigurasi bawaan dari sistem operasi tersebut agar sesuai dengan kebutuh pengguna. Berikut adalah beberapa hal yang saya lakukan setelah install [Linux Fedora 37 XFCE](https://spins.fedoraproject.org/xfce/download/index.html 'Linux Fedora 37 XFCE').
+Jika kita baru menginstal sistem operasi ada beberapa hal yang harus dilakukan.Misalnya install aplikasi yang dibutuhkan dan mengubah konfigurasi bawaan dari sistem operasi tersebut agar sesuai dengan kebutuh pengguna. Berikut adalah beberapa hal yang saya lakukan setelah install [Linux Fedora 37 XFCE](https://spins.fedoraproject.org/xfce/download/index.html).
 
 ## Memperbaiki jam di Linux dan Windows
 
-Jika kita menginstall Linux dan Windows dalam satu perangkat biasanya jam dikedua sistem operasi tersebut mengalami error atau tidak lagi akurat karena sistem operasi nya bingung untuk mengikuti jam di bios atau RTC (_Real Time Clock_). Solusinya sudah saya tulis [disini](https://rahmatardiansyah.art/blog/memperbaiki-jam-yang-tidak-akur-jika-dual-boot 'disini').
+Jika kita menginstall Linux dan Windows dalam satu perangkat biasanya jam dikedua sistem operasi tersebut mengalami error atau tidak lagi akurat karena sistem operasi nya bingung untuk mengikuti jam di bios atau RTC (_Real Time Clock_). Solusinya sudah saya tulis [disini]({{< ref "/blog/memperbaiki-jam-yang-tidak-akur-jika-dual-boot" >}}).
 
 ## Mengubah Konfigurasi DNF Package Manager
 
-Sekilas tentang DNF, DNF adalah package manager yang digunakan distribusi Linux berbasis RPM (RedHat Package Manager) termasuk Linux Fedora. Karena DNF adalah package manager yang termasuk lambat dalam penginstallan aplikasi, kita butuh sedikit mengubah konfigurasinya yang berada pada `/etc/dnf/dnf.conf`. Untuk tutorialnya silahkan kehalaman [ini](https://rahmatardiansyah.art/blog/mempercepat-download-dnf-package-manager 'ini').
+Sekilas tentang DNF, DNF adalah package manager yang digunakan distribusi Linux berbasis RPM (RedHat Package Manager) termasuk Linux Fedora. Karena DNF adalah package manager yang termasuk lambat dalam penginstallan aplikasi, kita butuh sedikit mengubah konfigurasinya yang berada pada `/etc/dnf/dnf.conf`. Untuk tutorialnya silahkan kehalaman [ini]().
 
 ### Update System
 
@@ -210,7 +210,7 @@ autofit-larger=60%x60%
 
 ## System Monitor
 System Monitor merupakan sebuah tool untuk melakukan monitoring atau pengawasan aplikasi yang berjalan pada komputer. Saya menggunakan `htop` dan `btop` sebagai System Monitor utama.
-```text
+```console
 $ sudo dnf in btop htop
 ```
 
