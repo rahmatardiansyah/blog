@@ -54,6 +54,11 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
   color: var(--primary);
 }
 
+.not-blog h1 a {
+    background-image: none;
+    font-weight: 400;
+}
+
 .toc a {
   border-bottom-style: none;
 }
@@ -89,7 +94,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
   padding: 1em;
   position: fixed;
   bottom: 1em;
-  right: 1em
+  right: 1em;
+  z-index: 999;
 }
 
 .to-top .paper-btn {

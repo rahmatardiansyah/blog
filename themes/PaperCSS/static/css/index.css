@@ -1,0 +1,19 @@
+@media only screen and (max-width: 769px){
+   #index h1 {
+       font-size: 3rem;
+   }
+
+   #index h4 {
+       font-size: 1.3rem;
+   }
+}
+
+@media only screen and (max-width: 428px){
+   #index h1 {
+       font-size: 2rem;
+   }
+ 
+   #index h4 {
+       font-size: 1rem;
+   }
+}

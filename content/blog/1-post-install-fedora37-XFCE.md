@@ -66,7 +66,7 @@ killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
 ```
 
-Saya menyimpan file tersebut di folder `~/.bin/` dan jangan lupa memberikan perizinan eksekusi dengan perintah `chmod +x ~/.bin/remaps.sh`. Setelah itu jalankan perintah `~/.bin/remaps.sh` maka tombol pada CapsLock sudah berubah menjadi Escape. Jika ingin di remaps secara otomatis daftarkan ke autostart dengan cara buka pengaturan `Session and Startup` lalu tekan tanda `+` dan pilih file `remaps.sh` tadi. Untuk mengaktifkan CapsLock bisa menggunakan tombol `LSfhit+RShift`.
+Saya menyimpan file tersebut di folder `~/.bin/` dan jangan lupa memberikan perizinan eksekusi dengan perintah `chmod +x ~/.bin/remaps.sh`. Setelah itu jalankan perintah `~/.bin/remaps.sh` maka tombol pada CapsLock sudah berubah menjadi Escape. Jika ingin di remaps secara otomatis daftarkan ke autostart dengan cara buka pengaturan `Session and Startup` lalu tekan tanda `+` dan pilih file `remaps.sh` tadi. Untuk mengaktifkan CapsLock bisa menggunakan tombol `LShift+RShift`.
 
 ## Install Font
 
@@ -239,7 +239,7 @@ ini adalah config tmux yang saya gunakan yang berada pada `~/.tmux.conf`.
 
 
 <details>
-    <summary>Click me</summary>
+  <summary>Click me</summary>
 
   ```text
   # change default prefix to Ctrl+a
@@ -302,7 +302,7 @@ Pavucontrol adalah aplikasi untuk mengatur Volume,Mixer Audio,sensitivitas mic, 
 $ sudo dnf in pavucontrol
 ```
 
-## Halvum
+## Helvum
 Helvum is a graphical patchbay for PipeWire.
 
 ```console
@@ -317,12 +317,32 @@ $ sudo dnf in sxiv exiv2 mediainfo
 ```
 
 ## RSS Feed
+RSS singkatan dari Really Simple Syndication atau Rich Site Summary. RSS Feed berguna untuk menampilakan postingan terbaru dari blog yang kita ikuti. Saya menggunakan [newsboat](https://newsboat.org/) karena aplikasi tersebut terminal based.
+
+```console
+$ sudo dnf in newsboat
+```
 
 ## Compare files tool
+Aplikasi ini berguna untuk memudahkan kita dalam membandingkan file atau folder. Biasanya untuk mengetahui perubahan pada file. [meld](https://meldmerge.org/) adalah salah satu aplikasi **compare** yang powerfull.
+
+```console
+$ sudo dnf in meld
+```
 
 ## Calculator
+Secara default Linux Fedora sudah terinstall kalkulator yang bernama `galculator`. Tapi saya kurang suka karena tidak menampilkan history/riwayat angka. Oleh karena itu saya menggunakan kalkulator bawaan `gnome`.
+
+```console
+$ sudo dnf in gnome-calculator
+```
 
 ## PDF Viewer
+Saya menginstall PDF Viewer dari `gnome` untuk cadangan jika terjadi error pada PDF Viewer bawaan Linux Fedora yang bernama `Atril`.
+
+```console
+$ sudo dnf in evince
+```
 
 ## rclone
 

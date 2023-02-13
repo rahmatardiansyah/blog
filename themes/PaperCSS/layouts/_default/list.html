@@ -3,27 +3,29 @@
 {{ end }}
 
 {{ define "main" }}
-<h2>Archive</h2>
-<div class="flex-spaces">
-  <div class="collapsible full-width">
-    <input id="collapsible-section-components" type="checkbox" name="collapsible-section" checked="">
-    <label for="collapsible-section-components">Tags</label>
-    <div class="collapsible-body">
-      <div class="row child-borders flex-center">
-        {{ range .Site.Taxonomies.tags }}
-          <a href="{{ .Page.Permalink }}" class="paper-btn margin">{{ .Page.Title }} <span class="text-secondary">{{ .Count }}</span></a>
-        {{ end }}
+<div id="list">
+    <h1>Archive</h1>
+    <div class="flex-spaces">
+      <div class="collapsible full-width">
+        <input id="collapsible-section-components" type="checkbox" name="collapsible-section" checked="">
+        <label for="collapsible-section-components">Tags</label>
+        <div class="collapsible-body">
+          <div class="row child-borders flex-center">
+            {{ range .Site.Taxonomies.tags }}
+              <a href="{{ .Page.Permalink }}" class="paper-btn margin">{{ .Page.Title }} <span class="text-secondary">{{ .Count }}</span></a>
+            {{ end }}
+          </div>
+        </div>
       </div>
+      {{ $pages := where .Data.Pages "Type" "blog" }} {{ range $pages.GroupByDate "2006-01" }}
+        <h3 class="margin-bottom-none">{{ dateFormat "January 2006" (printf "%s-01" .Key) }}</h3>
+        {{ range .Pages }}
+        <div class="row flex-edges margin-bottom-none margin-left-small">
+          <div class="col-8"><h5 class="margin-bottom-none"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5></div>
+          <div class="col-4 align-bottom text-right margin-bottom-none">{{ .PublishDate.Format .Site.Params.dateFormat }}</div>
+        </div>
+        {{ end }}
+      {{ end }}
     </div>
-  </div>
-  {{ $pages := where .Data.Pages "Type" "blog" }} {{ range $pages.GroupByDate "2006-01" }}
-    <h3 class="margin-bottom-none">{{ dateFormat "January 2006" (printf "%s-01" .Key) }}</h3>
-    {{ range .Pages }}
-    <div class="row flex-edges margin-bottom-none margin-left-small">
-      <div class="col-8"><h5 class="margin-bottom-none"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5></div>
-      <div class="col-4 align-bottom text-right margin-bottom-none">{{ .PublishDate.Format .Site.Params.dateFormat }}</div>
-    </div>
-    {{ end }}
-  {{ end }}
 </div>
 {{ end }}

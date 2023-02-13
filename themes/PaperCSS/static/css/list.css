@@ -1,0 +1,11 @@
+@media only screen and (max-width: 769px){
+   #list h1 {
+       font-size: 3rem;
+   } 
+}
+
+@media only screen and (max-width: 428px){
+   #list h1 {
+       font-size: 2rem;
+   } 
+}
