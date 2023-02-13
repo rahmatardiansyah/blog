@@ -12,7 +12,7 @@ Jika kita baru menginstal sistem operasi ada beberapa hal yang harus dilakukan.M
 
 ## Memperbaiki jam di Linux dan Windows
 
-Jika kita menginstall Linux dan Windows dalam satu perangkat biasanya jam dikedua sistem operasi tersebut mengalami error atau tidak lagi akurat karena sistem operasi nya bingung untuk mengikuti jam di bios atau RTC (_Real Time Clock_). Solusinya sudah saya tulis [disini]({{< ref "/blog/memperbaiki-jam-yang-tidak-akur-jika-dual-boot" >}}).
+Jika kita menginstall Linux dan Windows dalam satu perangkat biasanya jam dikedua sistem operasi tersebut mengalami error atau tidak lagi akurat karena sistem operasi nya bingung untuk mengikuti jam di bios atau RTC (_Real Time Clock_). Solusinya sudah saya tulis [disini]({{< ref "/blog/2-memperbaiki-jam-yang-tidak-akur-jika-dual-boot" >}}).
 
 ## Mengubah Konfigurasi DNF Package Manager
 
@@ -224,14 +224,97 @@ $ sudo dnf in screenkey
 {{< show-gif src="/images/demo-screenkey.gif" alt="Demo penggunaan aplikasi screenkey" class="no-border" >}}
 
 ## Color Picker
+Color Picker adalah tools yang digunakan untuk mengidentifikasi warna. Saya menggunakan [gpick](http://www.gpick.org/) karena memiliki fitur yang sangat lengkap tapi juga sangan ringan.
+
+```console
+$ sudo dnf in gpick
+```
 
 ## tmux
+Tmux adalah terminal multiplexer yang artinya kita bisa menambahkan jendela(pane) baru dalam 1 terminal. Tools ini sangat berguna jika ingin memiliki banyak terminal yang digunakan dalam satu waktu.
+```console
+$ sudo dnf in tmux
+```
+ini adalah config tmux yang saya gunakan yang berada pada `~/.tmux.conf`.
 
-## pavucontrol
+
+<details>
+    <summary>Click me</summary>
+
+  ```text
+  # change default prefix to Ctrl+a
+  set -g prefix C-a
+  set -g base-index 1
+  setw -g pane-base-index 1
+  # set -g default-shell /usr/bin/fish
+  set -g mouse on
+  
+  # set -g default-terminal "tmux-256color"
+  set -g default-terminal "xterm-256color"
+  set -ag terminal-overrides ",xterm-256color:RGB"
+  set -s escape-time 0
+  
+  # Pane
+  unbind '%'
+  bind '\' split-window -h
+  unbind '"'
+  bind - split-window -v
+  
+  bind -r C-h resize-pane -L 2
+  bind -r C-j resize-pane -D 2
+  bind -r C-k resize-pane -U 2
+  bind -r C-l resize-pane -R 2
+  
+  # smart pane switching with awareness of vim splits
+  bind h select-pane -L
+  bind j select-pane -D
+  bind k select-pane -U
+  bind l select-pane -R
+  
+  # reload config file (change file location to your the tmux.conf you want to use)
+  bind r source-file ~/.tmux.conf
+  bind p switch-client -p # swith to prev session
+  bind n switch-client -n # swith to to next session
+  
+  # Theme
+  set -g status-style 'bg=default,fg=white' # transparent status bar
+  set -g status-position bottom 
+  set -g pane-active-border-style "fg=1,bg=default"
+  set -g pane-border-style "fg=7,bg=default"
+  set -g window-status-current-format "#[fg=4,bold,bg=default](#[fg=1,bold,bg=default]#I #F #W#[fg=4,bold,bg=default])"
+  set -g window-status-format "#[fg=7,nobold,bg=default](#[fg=7,nobold,bg=default]#I #W#[fg=7,nobold,bg=default])"
+  
+  set -g status-left-length 50
+  set -g status-left "#[fg=3,bold,bg=default]#S " # session name
+  set -ga status-left '#[fg=5,nobold,bg=default]['
+  set -ga status-left '#[fg=2,nobold,bg=default]#{window_panes}:#{pane_index}'
+  set -ga status-left '#[fg=5,nobold,bg=default]] '
+  
+  set -g status-right-length 10
+  set -g status-right '' # disable working directory at right
+  ```
+</details>
+
+## Pavucontrol
+Pavucontrol adalah aplikasi untuk mengatur Volume,Mixer Audio,sensitivitas mic, dan lainnya.
+
+```console
+$ sudo dnf in pavucontrol
+```
 
 ## Halvum
+Helvum is a graphical patchbay for PipeWire.
+
+```console
+$ sudo dnf in helvum
+```
 
 ## Image Viewer
+Aplikasi untuk melihat gambar yang saya gunakan adalah [sxiv](https://github.com/xyb3rt/sxiv).
+
+```console
+$ sudo dnf in sxiv exiv2 mediainfo
+```
 
 ## RSS Feed
 

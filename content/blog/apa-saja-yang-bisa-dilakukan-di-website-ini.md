@@ -12,7 +12,8 @@ draft: true
 
 Artikel ini mengandung syntax markdown dasar yang digunakan untuk menulis postingan pada blog ini. Dan juga bisa menggunakan elements HTML didalamnya yang bisa dihias menggunakan CSS
 
-### Headings
+## Headings2
+### Headings3
 #### Headings4
 ##### Headings5
 ###### Headings6
