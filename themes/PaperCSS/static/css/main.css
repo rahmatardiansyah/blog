@@ -1,9 +1,5 @@
 html body {
-  /* background-image: url(../image/geometry.png); */
-}
-
-html.dark body {
-  background-color:#41403e;
+  background-image: url(../image/geometry.png);
 }
 
 @media (prefers-reduced-motion: no-preference) {

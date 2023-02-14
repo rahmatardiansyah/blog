@@ -7,7 +7,7 @@
     <h1>Archive</h1>
     <div class="flex-spaces">
       <div class="collapsible full-width">
-        <input id="collapsible-section-components" type="checkbox" name="collapsible-section" checked="">
+        <input id="collapsible-section-components" type="checkbox" name="collapsible-section">
         <label for="collapsible-section-components">Tags</label>
         <div class="collapsible-body">
           <div class="row child-borders flex-center">
@@ -17,10 +17,14 @@
           </div>
         </div>
       </div>
+      <div class="form-group margin-top-large">
+          <input class="input-block" type="text" placeholder="Search Title" id="search-input" autofocus>
+      </div>
+      <div class="alert alert-danger">Title Not Found</div>
       {{ $pages := where .Data.Pages "Type" "blog" }} {{ range $pages.GroupByDate "2006-01" }}
-        <h3 class="margin-bottom-none">{{ dateFormat "January 2006" (printf "%s-01" .Key) }}</h3>
+        <h3 class="margin-bottom-none mount-year">{{ dateFormat "January 2006" (printf "%s-01" .Key) }}</h3>
         {{ range .Pages }}
-        <div class="row flex-edges margin-bottom-none margin-left-small">
+        <div class="row flex-edges margin-bottom-none margin-left-small title-list">
           <div class="col-8"><h5 class="margin-bottom-none"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5></div>
           <div class="col-4 align-bottom text-right margin-bottom-none">{{ .PublishDate.Format .Site.Params.dateFormat }}</div>
         </div>
@@ -28,4 +32,5 @@
       {{ end }}
     </div>
 </div>
+<script src="{{ .Site.BaseURL }}js/search.js"></script>
 {{ end }}
