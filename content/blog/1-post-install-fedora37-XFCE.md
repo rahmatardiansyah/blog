@@ -2,7 +2,7 @@
 title: 'Post Install Fedora 37 XFCE'
 date: 2023-01-29T19:58:04+07:00
 description: 'Yang dilakukan setelah install Linux Fedora'
-tags: ['fedora', 'linux']
+tags: ['fedora', 'linux', 'tools']
 draft: false
 ---
 
@@ -345,14 +345,39 @@ $ sudo dnf in evince
 ```
 
 ## rclone
+[Rclone](https://rclone.org/) adalah tool yang memungkinakan kita bisa menyinkronkan file dari berbagai layanan cloud.
+
+```console
+$ sudo dnf in rclone
+```
 
 ## Gucharmap
+Tools ini berguna untuk mencari berbagai symbol dan unicode dalam berbagai bahasa.
+
+```console
+$ sudo dnf in gucharmap
+```
 
 ## Kalender
+Linux Fedora 37 tidak memiliki bawaan aplikasi untuk menampilkan kalender, saya menggunakan [calcurse](https://calcurse.org/) karena termasuk aplikasi berbasis terminal.
+
+```console
+$ sudo dnf in calcurse
+```
 
 ## Typing Test
+Untuk melatih mengetik 10 jari saya install aplikasi yang bernama [klavaro](https://klavaro.sourceforge.io/en/index.html).
+
+```console
+$ sudo dnf in klavaro
+```
 
 ## Figlet
+[Figlet](http://www.figlet.org/) adalah tools untuk mengkonversi dari text ke ASCII art.
+
+```console
+$ sudo dnf in figlet
+```
 
 ## Docker
 
