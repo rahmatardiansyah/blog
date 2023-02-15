@@ -55,7 +55,7 @@
   }
 
   .collapsible .collapsible-body{
-    background-color: var(--main-background);
+    background-color: inherit;
   }
 }
 
