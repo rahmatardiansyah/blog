@@ -53,6 +53,10 @@
   html body {
     background-color: var(--main-background);
   }
+
+  .collapsible .collapsible-body{
+    background-color: var(--main-background);
+  }
 }
 
 @media (prefers-color-scheme: light) {
