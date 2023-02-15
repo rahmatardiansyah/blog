@@ -1,0 +1,12 @@
+{{ $img := imageConfig (add "/static" (.Destination | safeURL)) }}
+
+<div class="row flex-center">
+    <img
+      src="{{ .Destination | safeURL }}"
+      class="no-border"
+      alt="{{ .Text }}"
+      loading="lazy"
+      width="{{ $img.Width }}"
+      height="{{ $img.Height }}"
+    />
+</div>
