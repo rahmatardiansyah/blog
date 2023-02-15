@@ -214,7 +214,7 @@ System Monitor merupakan sebuah tool untuk melakukan monitoring atau pengawasan 
 $ sudo dnf in btop htop
 ```
 
-## screenkey
+## Screenkey
 Aplikasi [screenkey](https://gitlab.com/screenkey/screenkey) ini berguna untuk manampilkan log/history dari keyboard maupun mouse. Biasanya digunakan untuk membuat video presentasi agar memudahkan penontonnya mengetahui apa yang di-click maupun yang ditekan pada keyboard.
 
 ```console
