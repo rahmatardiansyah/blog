@@ -190,7 +190,7 @@ $ sudo dnf in scrcpy
 
 Enable kan **Usb Debugging** dan connect kan hp via Usb lalu jalankan perintah `scrcpy` di terminal.
 
-{{< show-gif src="/images/demo-scrcpy.gif" alt="Demo penggunaan aplikasi scrcpy" class="no-border" >}}
+![Demo penggunaan aplikasi scrcpy](/images/demo-scrcpy.gif)
 
 ## Video Player mpv
 Video player yang saya gunakan adalah [mpv](https://mpv.io/) karena ringan dan mengoperasikannya menggunakan keybind.
@@ -221,7 +221,7 @@ Aplikasi [screenkey](https://gitlab.com/screenkey/screenkey) ini berguna untuk m
 $ sudo dnf in screenkey
 ```
 
-{{< show-gif src="/images/demo-screenkey.gif" alt="Demo penggunaan aplikasi screenkey" class="no-border" >}}
+![Demo penggunaan aplikasi screenkey](/images/demo-screenkey.gif)
 
 ## Color Picker
 Color Picker adalah tools yang digunakan untuk mengidentifikasi warna. Saya menggunakan [gpick](http://www.gpick.org/) karena memiliki fitur yang sangat lengkap tapi juga sangan ringan.

@@ -1,5 +1,5 @@
 ---
-title: 'Memperbaiki Jam Yang Tidak Akur Jika Dual Boot'
+title: 'Memperbaiki Jam yang Tidak Akur Jika Dual Boot'
 date: 2023-01-29T20:09:26+07:00
 description: 'Cara Memperbaiki Jam di Linux dan Windows'
 tags: ['linux', 'windows']
@@ -8,8 +8,6 @@ draft: false
 ---
 
 ## Permasalahan
-
-Jika kita melakukan dual booting Windows dan Linux akan terjadinya perbedaan waktu di kedua sistem operasi tersebut.Walaupun kita telah mengatur jam dan _timezone_ dengan tepat akan kembali _error_ jika melakukan _reboot_ pada sistem. Ada 2 cara memperbaikinya yaitu buat linux menjadi Local Time atau buat Windows menjadi UTC Time. Saya pribadi menggunakan cara yang pertama yaitu linux yang mengikuti jam bios.
 
 Jika kita melakukan dual booting Windows dan Linux akan terjadinya perbedaan waktu di kedua sistem operasi tersebut.Walaupun kita telah mengatur jam dan _timezone_ dengan tepat akan kembali _error_ jika melakukan _reboot_ pada sistem. Ada 2 cara memperbaikinya yaitu buat linux menjadi Local Time atau buat Windows menjadi UTC Time. Saya pribadi menggunakan cara yang pertama yaitu linux yang mengikuti jam bios.
 
