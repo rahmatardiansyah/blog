@@ -142,5 +142,8 @@ Add captions to your inline images like this:
 
 {{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
 
+## Embed Video
+{{< video src="/videos/coba-embed-video.webm" type="video/webm" muted="true" loop="true" >}}
+
 ## Embed Audio
-{{<audio src="/audio/test.mp3" class="row flex-center" >}}
+{{< audio src="/audio/test.mp3" preload="none" class="row flex-center" >}}
