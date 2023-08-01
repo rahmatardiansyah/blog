@@ -1,4 +1,4 @@
-baseURL = 'https://rahmatardiansyah.github.io/blog'
+baseURL = 'https://rahmatardiansyah.github.io/blog/'
 languageCode = 'en-us'
 title = 'MatArt'
 theme = 'PaperCSS'
