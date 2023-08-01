@@ -50,8 +50,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          hugo \
-            --theme "PaperCSS"
+          hugo --theme "PaperCSS"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
